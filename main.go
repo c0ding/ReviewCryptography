@@ -5,6 +5,7 @@ import (
 	sb "github.com/c0ding/ReviewCryptography/对称密码"
 	pc "github.com/c0ding/ReviewCryptography/非对称密码"
 	"github.com/c0ding/ReviewCryptography/散列函数"
+	"github.com/c0ding/ReviewCryptography/消息认证码"
 )
 
 func main() {
@@ -30,4 +31,10 @@ func main() {
 
 	hash := hashfunc.Hash([]byte("erwe士大夫撒的是"))
 	fmt.Println(hash)
+
+
+	key := []byte("123456781234")
+	ha1 := mac.GenerateHmac(src,key)
+	bl := mac.VerifyHmac(src,key,ha1)
+	fmt.Println("消息认证码：",bl)
 }
