@@ -13,6 +13,7 @@ func Hash(plainText []byte)string  {
 		myStr string
 	)
 	myHash = sha256.New()
+
 	//myHash.Write([]byte("明文明文明文明文明文明文明文明文明文明文明文明文明文明文明文明文"))
 	myHash.Write(plainText)
 	res = myHash.Sum(nil)

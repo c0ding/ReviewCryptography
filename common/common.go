@@ -2,6 +2,12 @@ package common
 
 import "bytes"
 
+const (
+	Public string =  "public.pem"
+	Private string ="private.pem"
+)
+
+
 // 对称密码， 分组加密，最后一组有需要填充数据的情况，如：cbc模式
 func PaddingLastGroup(plainText []byte, blockSize int) []byte {
 	var (
@@ -31,3 +37,4 @@ func UnPaddingLastGroup(plainText []byte) []byte {
 	return plainText[:len(plainText)-number]
 
 }
+

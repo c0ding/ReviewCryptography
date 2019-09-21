@@ -3,7 +3,7 @@ package sharePub
 import (
 	"crypto/cipher"
 	"crypto/des"
-	"github.com/c0ding/ReviewCryptography/对称密码/common"
+	"github.com/c0ding/ReviewCryptography/common"
 )
 
 func Des3Encrypt(plainText, key []byte) []byte {

@@ -7,13 +7,10 @@ import (
 	"encoding/pem"
 	"os"
 	"fmt"
+	"github.com/c0ding/ReviewCryptography/common"
 )
 
-const (
-	Public string =  "public.pem"
-	Private string ="private.pem"
 
-)
 
 // 生成rsa 密钥对，保存到磁盘中
 func GenerateRsaKey(keySize int) {
@@ -36,13 +33,11 @@ func GenerateRsaKey(keySize int) {
 		Type:"rsa private key",
 		Bytes:derText,
 	}
-	if file, err = os.Create(Private); err != nil {
+	if file, err = os.Create(common.Private ); err != nil {
 		panic(err)
 	}
 	pem.Encode(file, &block)
 	file.Close()
-
-
 
 
 	publicKey = privateKey.PublicKey
@@ -53,7 +48,7 @@ func GenerateRsaKey(keySize int) {
 		Type:"rsa public key",
 		Bytes:derstream,
 	}
-	if file, err = os.Create(Public); err != nil {
+	if file, err = os.Create(common.Public); err != nil {
 		panic(err)
 	}
 	pem.Encode(file,&block)
